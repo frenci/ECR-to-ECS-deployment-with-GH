@@ -1,11 +1,16 @@
 ##
 
 name: Deploy to Amazon ECS
-on:
-  create:
-    branches: [ main ]
+'on':
+  push:
+    branches:
+      - main
     tags:
-      - .*
+      - "*"
+  pull_request:
+    branches:
+      - main
+
 env:
   AWS_REGION: us-east-1                  
   ECR_REPOSITORY: app-registry        
