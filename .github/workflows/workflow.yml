@@ -76,7 +76,7 @@ jobs:
       
       - name: Stop the previous service
         run: |
-          aws ecs stop-task --cluster "ecs-cluster" --task bec510b4cdb74387a5c483e651add978
+          aws ecs stop-task --cluster ${{ secrets.ECS_CLUSTER }} --task d27538fac25747c3bf4126b34d2a3aca
 
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1.4.9
