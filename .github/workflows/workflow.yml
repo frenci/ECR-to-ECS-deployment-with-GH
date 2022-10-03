@@ -73,6 +73,10 @@ jobs:
           task-definition: task-definition.json
           container-name: application  # edit me
           image: ${{ steps.build-image.outputs.image }}
+      
+      - name: Stop the previous service
+        run: |
+          aws ecs stop-task --cluster "ecs-cluster" --task $(aws ecs list-tasks --cluster "ecs-cluster" --service "ecs-service" --output text --query taskArns[0])
 
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1.4.9
