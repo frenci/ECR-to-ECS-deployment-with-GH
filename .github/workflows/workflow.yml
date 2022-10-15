@@ -81,7 +81,7 @@ jobs:
       #   # aws ecs stop-task --cluster ${{ secrets.ECS_CLUSTER }} --task d27538fac25747c3bf4126b34d2a3aca
 
       - name: Deploy Amazon ECS task definition
-        uses: aws-actions/amazon-ecs-deploy-task-definition@v1.4.9
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1.4.10
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
           service: ${{ secrets.ECS_SERVICE }}
